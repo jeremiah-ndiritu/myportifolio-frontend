@@ -1,0 +1,26 @@
+.carosel{
+.carosel{
+        height: fit-content;
+        padding: 2em 0em;
+        max-width: 800px;
+        overflow-x: auto;
+        display: flex;
+    }
+}
+
+.carosel::-webkit-scrollbar{
+    display: none;
+}
+
+.group{
+    animation: spin 10s infinite linear;
+    display: flex;
+    gap: 2em;
+    padding-right: 4em;
+}
+@keyframes spin{
+    from{
+        translate: 0%;
+    }
+    to{translate: -100%;}
+}
