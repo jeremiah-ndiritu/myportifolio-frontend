@@ -4,7 +4,7 @@ const Talks_session = () => {
   return (
       <section className="mx-4 my-[5em]">
           <h1 className="text-slate-800 text-center text-[clamp(1em,4vw,2.5em)]">TALKS & WORKSHOPS</h1>
-          <p>some of the Mentorships sessions have been conducted.</p>
+          <p>Some of the Mentorships sessions have been conducted.</p>
           <div>
               {/* gallary */}
               <div>

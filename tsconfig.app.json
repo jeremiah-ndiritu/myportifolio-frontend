@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
     "useDefineForClassFields": true,
@@ -7,6 +8,15 @@
     "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@css/*": ["./src/css/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@sections/*": ["./src/components/sections/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@UI/*": ["./src/components/UI/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

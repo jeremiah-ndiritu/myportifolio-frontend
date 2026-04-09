@@ -1,5 +1,6 @@
-import ScrollVelocity from "../ScrollVelocity";
-const Explore = () => {
+import ScrollVelocity from "../components/ScrollVelocity";
+
+const AboutPage = () => {
   const velocity = 20;
   return (
     <section className=" min-h-[80vh] md:min-h-[110vh] mt-[5em] md:mt-[20em] mx-4">
@@ -27,7 +28,7 @@ const Explore = () => {
             <p className="text-slate-600 text- mx-4 md:mx-20">
               Dive into a world where innovation meets creativity. As a
               Fullstack Developer and Designer, I craft seamless digital
-              experiences that captivate and inspire. Explore my portfolio to
+              experiences that captivate and inspire. About my portfolio to
               witness the fusion of cutting-edge technology and artistic vision,
               where every project tells a unique story of problem-solving and
               design excellence. Let's embark on a journey through my work and
@@ -40,4 +41,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default AboutPage;
