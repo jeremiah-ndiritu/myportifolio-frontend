@@ -41,6 +41,22 @@ const Hero = () => {
         <br className="hidden md:block" /> deep understanding of both user needs{" "}
         <br className="hidden md:block" /> and technical possibilities.
       </h1>
+      <div
+        className="badge-base LI-profile-badge"
+        data-locale="en_US"
+        data-size="medium"
+        data-theme="light"
+        data-type="VERTICAL"
+        data-vanity="ndiritu-njeri-23389038b"
+        data-version="v1"
+      >
+        <a
+          className="badge-base__link LI-simple-link"
+          href="https://ke.linkedin.com/in/ndiritu-njeri-23389038b?trk=profile-badge"
+        >
+          Ndiritu Njeri
+        </a>
+      </div>
     </section>
   );
 };

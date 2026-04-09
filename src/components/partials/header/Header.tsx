@@ -1,77 +1,133 @@
-"use client"
+"use client";
+
 import "./header.css";
-import {
-  FaFacebook,
-  FaGithub,
-  FaReact,
-  FaTwitter,
-} from "react-icons/fa";
-import { useState } from "react";
-// import { IoIosArrowDown } from "react-icons/io";
-import { IoIosChatboxes } from "react-icons/io";
+import { useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaGithub, FaReact, FaLinkedin } from "react-icons/fa";
 import { IoChatboxSharp } from "react-icons/io5";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
-// import MobileNav from "./MobileNav";
-// import AiChat from "./AiChat";
+
+type ExtLink = {
+  href: string;
+  target?: "_blank" | "_self" | `jeremiah-ndiritu-${string}` | (string & {});
+  icon: ReactNode;
+  title: string;
+};
+
+const navLinks = [
+  { name: "About", path: "/about" },
+  { name: "Process", path: "/process" },
+  { name: "Projects", path: "/projects" },
+  { name: "Case Studies", path: "/case-studies" },
+];
+
+const socialLinks: ExtLink[] = [
+  {
+    href: "https://github.com/jeremiah-ndiritu",
+    target: "jeremiah-ndiritu-github",
+    icon: <FaGithub size={20} />,
+    title: "Github",
+  },
+  {
+    href: "https://twitter.com",
+    target: "jeremiah-ndiritu-x",
+    icon: <FaLinkedin size={20} />,
+    title: "Twitter",
+  },
+  {
+    href: "https://facebook.com",
+    target: "jeremiah-ndiritu-fb",
+    icon: <FaFacebook size={20} />,
+    title: "Facebook",
+  },
+];
+
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
-  const handleClick = () => {
-    setOpenNav(!openNav);
-  }
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Process", path: "/process" },
-    { name: "Projects", path: "/projects" },
-    { name: "Case Studies", path: "/case-studies" },
-  ];
+
+  const toggleNav = () => setOpenNav(!openNav);
+
   return (
-    <header className="text-slate-50 p-4">
-      <nav className="flex justify-between items-center">
-        <Link to="/">
+    <header className="text-slate-50 p-4 bg-slate-900 sticky top-0 z-50">
+      <nav className="flex justify-between items-center max-w-7xl mx-auto">
+        {/* Logo */}
+        <Link to="/" className="hover:opacity-80 transition-opacity">
           <div className="flex gap-2 items-center border-2 px-4 py-1 rounded border-white">
-            <FaReact size={20} className="font-extrabold animate-spin" />
-            <h1 className="font-bold text-[14px] ">NDERITU</h1>
+            <FaReact
+              size={20}
+              className="text-cyan-400 animate-[spin_5s_linear_infinite]"
+            />
+            <h1 className="font-bold text-[14px] tracking-tight">
+              Jeremiah N.
+            </h1>
           </div>
         </Link>
-        <ul className="navLinks md:flex gap-6 hidden">
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex gap-8">
           {navLinks.map((link) => (
-            <li key={link.name} className="hover:text-slate-300">
-              <Link to={link.path} className="relative  text-blue-400 font-bold transition-colors duration-300 hover:text-white
-                         after:content-[''] after:absolute after:left-0 after:bottom-0
+            <li key={link.name}>
+              <Link
+                to={link.path}
+                className="relative text-slate-300 font-medium transition-colors duration-300 hover:text-white
+                         after:content-[''] after:absolute after:left-0 after:-errr445bottom-1
                          after:h-0.5 after:w-0 after:bg-blue-400 after:transition-all after:duration-300
-                         hover:after:w-full">{link.name}</Link>
+                         hover:after:w-full"
+              >
+                {link.name}
+              </Link>
             </li>
           ))}
         </ul>
-        <div className="text-white gap-4 md:flex hidden">
-          <div>
-            <FaGithub size={20} className="hover:text-gray-400" />
-          </div>
-          <div>
-            <FaTwitter size={20} className="hover:text-slate-600" />
-          </div>
-          <div>
-            <FaFacebook size={20} className="hover:text-blue-500" />
-          </div>
-          <div>
-            <IoIosChatboxes size={20} className="hover:text-blue-500" />
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="bg-white relative text-slate-900  py-0.51 px-4 rounded flex items-center gap-4">
-            Let Talk
-            <IoChatboxSharp />
-            {/* <AiChat/> */}
-          </button>
 
-          <HiOutlineBars3BottomRight onClick={handleClick} size={40} className="md:hidden" />
-          {/* {
-            !openNav &&
-            // <MobileNav />
-          } */}
+        {/* Social Icons & CTA */}
+        <div className="flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4 text-slate-400">
+            {socialLinks.map((social) => (
+              <a
+                key={social.title}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={social.title}
+                className="hover:text-white transition-colors"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button className="bg-white text-slate-900 font-bold py-1.5 px-5 rounded-full flex items-center gap-2 hover:bg-blue-400 hover:text-white transition-all active:scale-95">
+              <span>Let's Talk</span>
+              <IoChatboxSharp />
+            </button>
+
+            {/* Mobile Toggle */}
+            <HiOutlineBars3BottomRight
+              onClick={toggleNav}
+              size={32}
+              className="md:hidden cursor-pointer hover:text-blue-400 transition-colors"
+            />
+          </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Placeholder (Example Implementation) */}
+      {openNav && (
+        <div className="absolute top-full left-0 w-full bg-slate-800 p-6 flex flex-col gap-4 md:hidden border-t border-slate-700">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => setOpenNav(false)}
+              className="text-lg font-semibold"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
