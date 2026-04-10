@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
       </div>
       <ScrollVelocity
-        texts={["", "JEREMIAH - NDIRITU - BACKEND - DEVELOPER"]}
+        texts={["", "JEREMIAH - NDIRITU - FULLSTACK - DEVELOPER"]}
         velocity={Velocity}
         className=" text-slate-500"
       />

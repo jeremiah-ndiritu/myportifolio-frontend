@@ -1,6 +1,7 @@
 import type { Message } from "@/config/indexedDB";
 import JerePng from "@images/jeremiah-ai-pic-in-suit-passport.png";
 import { cn } from "@lib/cn";
+import { toast } from "sonner";
 
 interface MessageProps {
   message: Message;
@@ -20,10 +21,16 @@ const ChatMessage = ({ message, position, userImage }: MessageProps) => {
     hour12: true,
   }).format(new Date(timestamp));
 
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault()
+    toast.info("Will handle mannually")
+  }
+
   return (
     <div
+    onContextMenu={handleContextMenu}
       className={cn(
-        "group flex w-full mb-6 gap-3 items-end animate-in fade-in slide-in-from-bottom-2 duration-300",
+        "group cursor-alias flex w-full mb-6 gap-3 items-end animate-in fade-in slide-in-from-bottom-2 duration-300",
         isRight ? "flex-row-reverse" : "flex-row",
       )}
     >

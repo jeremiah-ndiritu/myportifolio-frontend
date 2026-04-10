@@ -1,16 +1,26 @@
-import { useCallback, useEffect, useRef, useState } from "react"; // 1. Import hooks
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type SetStateAction,
+} from "react"; // 1. Import hooks
 import useAIChatDialogue from "@hooks/useAIChatDialogue";
 import Button from "../UI/Button";
-import { ArrowUp, X } from "lucide-react";
+import { ArrowUp, Folder, X } from "lucide-react";
 import JerePng from "@images/jeremiah-ai-pic-in-suit-passport.png";
 import { toast } from "sonner";
 import { useChat } from "@/hooks/useChat";
 import ChatMessage from "./ChatMessage";
-import ChatSidebar from "./ChatSidebar";
 
 import "@css/AiChatStyles.css";
 
-const AiChatMain = () => {
+const AiChatMain = ({
+  setVisible,
+}: {
+  fit?: boolean;
+  setVisible: React.Dispatch<SetStateAction<boolean>>;
+}) => {
   const [message, setMessage] = useState("");
   const { isOpen, setIsOpen } = useAIChatDialogue(); // 2. Ensure you have the setter
   const { messages, sendMessage } = useChat();
@@ -40,100 +50,93 @@ const AiChatMain = () => {
       }
     };
 
-    function eModule() {
-      const keys = new Array<string>(2);
-      const handleTextAreaEnter = (e: KeyboardEvent) => {
-        if (keys.length >= 2) {
-          keys.unshift(e.key);
-        }
-        keys.push(e.key);
-        if (keys.join("-") === "Shift-Enter") {
-          return;
-        }
-        if (e.key === "Enter") {
-          handleSendMessage();
-        }
-      };
-      return { handleTextAreaEnter };
-    }
+    const handleTextAreaEnter = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        handleSendMessage();
+      }
+    };
 
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", eModule().handleTextAreaEnter);
+    document.addEventListener("keydown", handleTextAreaEnter);
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", eModule().handleTextAreaEnter);
+      document.removeEventListener("keydown", handleTextAreaEnter);
     };
   }, [isOpen, setIsOpen, handleSendMessage]);
 
-  const fadedBackgroundStyle = {
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${JerePng})`,
+  const fadedBackgroundStyle: React.CSSProperties = {
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.90)), url(${JerePng})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
 
   return (
-    isOpen && (
-      <section
-        ref={modalRef} // 4. Attach the ref here
-        style={fadedBackgroundStyle}
-        className="fixed flex flex-col top-15 right-0 w-[40%] min-h-[85vh] p-2 rounded shadow-lg z-40"
+    <section
+      ref={modalRef} // 4. Attach the ref here
+      style={fadedBackgroundStyle}
+      className={`fixed bg-card flex flex-col justify-between top-0 right-0 grow h-[85vh] p-2 rounded shadow-lg z-40`}
+    >
+      {/* Exit Button */}
+      <button
+        onClick={() => setIsOpen(false)}
+        className="absolute top-4 right-4 p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-gray-600 hover:text-black transition-colors backdrop-blur-md border border-white/30"
+        aria-label="Close chat"
       >
-        {/* Exit Button */}
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-gray-600 hover:text-black transition-colors backdrop-blur-md border border-white/30"
-          aria-label="Close chat"
-        >
-          <X size={18} />
-        </button>
-        {/* Header */}
-        <header className="mb-6">
-          <ChatSidebar />
-          <h1 className="text-center text-2xl font-semibold tracking-tight">
-            AI Assistance
-          </h1>
-        </header>
+        <X size={18} />
+      </button>
+      <button
+        onClick={() => setVisible((p) => !p)}
+        className="cursor-e-resize absolute top-0 left-0 z-30"
+        title="toggle-sidebar"
+        aria-label="Toggle chats"
+      >
+        <Folder />
+      </button>
+      {/* Header */}
+      <header className="mb-6">
+        <h1 className="text-center text-primary text- text-2xl font-semibold tracking-tight">
+          Chat with Jeremiah
+        </h1>
+      </header>
 
-        <div className="flex flex-col">
-          <div className="bg-popover text-start text-primary rounded p-4 min-h-[5em] mb-6">
+      <div className="messages flex shrink grow flex-col overflow-y-scroll">
+        {/* <div className="bg-popover text-start text-primary rounded p-4 min-h-[5em] mb-6">
             Hi, do you want to discuss your project with me?
-          </div>
-          {messages.length ? (
-            messages.map((m) => (
-              <ChatMessage key={m.id} message={m} position="right" />
-            ))
-          ) : (
-            <p>Start a new chat</p>
-          )}
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="aiinput" className="sr-only">
-            Chat input
-          </label>
-          <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            ref={textareaRef}
-            value={message}
-            id="aiinput"
-            placeholder="Type your message..."
-            className="w-full text-primary border border-border rounded p-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows={4}
-          />
-          <Button
-            onClick={handleSendMessage}
-            variant={"primary"}
-            rightIcon={ArrowUp}
-            type="button"
-            className="mt-3 self-end bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-          >
-            Send
-          </Button>
-        </div>
-      </section>
-    )
+          </div> */}
+        {messages.length ? (
+          messages.map((m) => (
+            <ChatMessage key={m.id} message={m} position="right" />
+          ))
+        ) : (
+          <p>Start a new chat</p>
+        )}
+      </div>
+      <div className="flex justify-between gap-2 sticky bottom-1">
+        <label htmlFor="aiinput" className="sr-only">
+          Chat input
+        </label>
+        <textarea
+          onChange={(e) => setMessage(e.target.value)}
+          ref={textareaRef}
+          value={message}
+          id="aiinput"
+          placeholder="..."
+          className="w-full text-primary border border-border rounded p-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows={1}
+        />
+        <Button
+          onClick={handleSendMessage}
+          variant={"primary"}
+          rightIcon={ArrowUp}
+          type="button"
+          title="send-btn"
+          className="self-end bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        ></Button>
+      </div>
+    </section>
   );
 };
 

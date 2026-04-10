@@ -86,8 +86,7 @@ const Header = () => {
               <a
                 key={social.title}
                 href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={social.target}
                 title={social.title}
                 className="hover:text-white transition-colors"
               >

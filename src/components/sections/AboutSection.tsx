@@ -1,16 +1,19 @@
 import ScrollVelocity from "../ScrollVelocity";
-import aboutImg from "@images/jeremiah-ai-pic-in-suit.png"
+import aboutImg from "@images/jeremiah-ai-pic-in-suit.png";
 const About = () => {
   const velocity = 20;
   return (
-    <section className=" min-h-[80vh] md:min-h-[110vh] mt-[5em] md:mt-[20em] mx-4">
+    <section
+      id="about"
+      className="min-h-[80vh] md:min-h-[110vh] mt-[5em] md:mt-[20em] mx-4"
+    >
       <ScrollVelocity
-        texts={["", " DEVELOPER - BACKEND - DEVELOPER - "]}
+        texts={["", " DEVELOPER - FULLSTACK - DEVELOPER - "]}
         velocity={velocity}
         className=" text-slate-500"
       />
       <div className="mt-10">
-        <h1 className="text-[clamp(2em,10vw,4em)] text-slate-700 font-bold py-2 text-center">
+        <h1 className="text-[clamp(2em,10vw,4em)] text-secondary font-bold py-2 text-center">
           ABOUT ME
         </h1>
         <div className="flex flex-col md:flex-row items-end justify-between">
