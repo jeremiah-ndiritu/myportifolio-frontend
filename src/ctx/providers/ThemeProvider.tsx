@@ -7,7 +7,7 @@ export default function ThemeProvider({children}:{children: ReactNode}) {
         if(saved){
             return saved
         }
-        const prefersDark = window.matchMedia("prefers-color-scheme: dark").matches
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
         
         return prefersDark ? "dark": "light"
     })
