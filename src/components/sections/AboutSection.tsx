@@ -1,4 +1,5 @@
 import ScrollVelocity from "../ScrollVelocity";
+import aboutImg from "@images/jeremiah-ai-pic-in-suit.png"
 const About = () => {
   const velocity = 20;
   return (
@@ -15,11 +16,11 @@ const About = () => {
         <div className="flex flex-col md:flex-row items-end justify-between">
           <div className="text-start text-slate-300 flex-1">
             <img
-              src=""
-              alt=""
+              src={aboutImg}
+              alt="About Image"
               className="min-h-30 min-w-30 rounded bg-slate-800"
             />
-            <h1>JEREMIAH NDERITU</h1>
+            <h1>JEREMIAH NDIRITU</h1>
             <p>BSC. SOFTWARE ENGINEERING</p>
             <p>KIRINYAGA UNIVERSITY</p>
           </div>

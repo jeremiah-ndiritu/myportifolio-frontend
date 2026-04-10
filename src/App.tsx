@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import {Toaster} from "sonner"
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import the AOS CSS file
 import { Route, Routes } from "react-router-dom";
@@ -10,11 +11,10 @@ import Process from "./pages/Process";
 import Projects from "./pages/Projects";
 import About from "./pages/AboutPage";
 import Particles from "./components/Particles";
-import useAIChatDialogue from "./hooks/useAIChatDialogue";
-import AiChat from "./components/partials/AiChat";
+import AIChatPanel from "./components/chat/AIChatPanel";
 // import MobileNav from './components/partials/MobileNav';
 const App = () => {
-  const {isOpen} = useAIChatDialogue()
+
   useEffect(() => {
     AOS.init({
       duration: 900, // Optional: animation duration in milliseconds
@@ -22,7 +22,7 @@ const App = () => {
     });
   }, []);
   return (
-    <>
+    <main className="relative h-full w-full pt-12">
       <div style={{ width: "100%", height: "600px", position: "fixed" }}>
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
@@ -35,9 +35,7 @@ const App = () => {
           disableRotation={false}
         ></Particles>
       </div>
-      {
-        isOpen && <AiChat />
-      }
+      <AIChatPanel />
       <Header />
       {/* <MobileNav/> */}
       <Routes>
@@ -48,7 +46,8 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
       </Routes>
       <Footer />
-    </>
+      <Toaster position="top-right" richColors />
+    </main>
   );
 };
 

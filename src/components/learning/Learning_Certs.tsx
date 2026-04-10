@@ -1,5 +1,5 @@
-// import plp_cert from "../../assets/certs/plp-cert.png"
-// import simplilearn_cert from "../../assets/certs/simplilearn.png"
+import plp_cert from "@/assets/certs/plp-cert.png"
+import simplilearn_cert from "@/assets/certs/simplilearn.png"
 const Learning_Certs = () => {
   return (
     <section className="my-20 mx-4 px-4 min-h-screen">
@@ -15,7 +15,7 @@ const Learning_Certs = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-4">
             <div className="w-full flex items-center justify-center p-2 bg-white/0 rounded">
               <img
-                src={""}
+                src={simplilearn_cert}
                 alt="Simplilearn certificate"
                 loading="lazy"
                 className="w-full h-auto "
@@ -24,7 +24,7 @@ const Learning_Certs = () => {
 
             <div className="w-full flex items-center justify-center p-2 bg-white/0 rounded">
               <img
-                src={""}
+                src={plp_cert}
                 alt="PLP certificate"
                 loading="lazy"
                 className="w-full h-auto "

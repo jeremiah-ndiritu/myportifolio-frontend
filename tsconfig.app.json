@@ -14,8 +14,11 @@
       "@pages/*": ["./src/pages/*"],
       "@sections/*": ["./src/components/sections/*"],
       "@lib/*": ["./src/lib/*"],
+      "@contexts/*": ["./src/ctx/contexts/*"],
+      "@providers/*": ["./src/ctx/providers/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@UI/*": ["./src/components/UI/*"]
+      "@UI/*": ["./src/components/UI/*"],
+      "@images/*": ["./src/assets/images/*"]
     },
 
     /* Bundler mode */

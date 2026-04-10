@@ -33,7 +33,7 @@ const Hero = () => {
       <img
         src={hero_image}
         alt="hero image"
-        className="filter drop-shadow-2xl hover:drop-shadow-purple-700/20 ease-in-out duration-1000 absolute right-[1em] md:right-[22em] top-[10em] md:-top-[0.51em] max-w-[19em] md:max-w-[19em] z-10"
+        className="filter hero_image drop-shadow-2xl hover:drop-shadow-purple-700/20 ease-in-out duration-1000 absolute right-[1em] md:right-[22em] top-[10em] md:-top-[0.51em] max-w-[19em] md:max-w-[19em] z-10"
         data-aos="zoom-in"
       />
       <h1 className="absolute  right-1 -bottom-4 md:bottom-4 text-end font-bold text-slate-700 flex-2  ">
@@ -41,22 +41,7 @@ const Hero = () => {
         <br className="hidden md:block" /> deep understanding of both user needs{" "}
         <br className="hidden md:block" /> and technical possibilities.
       </h1>
-      <div
-        className="badge-base LI-profile-badge"
-        data-locale="en_US"
-        data-size="medium"
-        data-theme="light"
-        data-type="VERTICAL"
-        data-vanity="ndiritu-njeri-23389038b"
-        data-version="v1"
-      >
-        <a
-          className="badge-base__link LI-simple-link"
-          href="https://ke.linkedin.com/in/ndiritu-njeri-23389038b?trk=profile-badge"
-        >
-          Ndiritu Njeri
-        </a>
-      </div>
+      
     </section>
   );
 };

@@ -1,13 +1,12 @@
-"use client";
-
 import "@css/header.css";
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaGithub, FaReact, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoChatboxSharp } from "react-icons/io5";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import useAIChatDialogue from "../../hooks/useAIChatDialogue";
 import ThemeToggle from "../UI/ThemeToggle";
+import { Home } from "lucide-react";
 
 type ExtLink = {
   href: string;
@@ -51,17 +50,13 @@ const Header = () => {
   const { setIsOpen } = useAIChatDialogue();
 
   return (
-    <header className="text-slate-50 p-4 bg-background sticky top-0 z-50">
+    <header className="fixed left-0 right-0 text-primary p-4 bg-background/50 backdrop-blur-sm top-0 z-30">
       <nav className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <Link to="/" className="hover:opacity-80 transition-opacity">
           <div className="flex gap-2 items-center border-2 px-4 py-1 rounded border-white">
-            <FaReact
-              size={20}
-              className="text-cyan-400 animate-[spin_5s_linear_infinite]"
-            />
             <h1 className="font-bold text-[14px] tracking-tight">
-              Jeremiah N.
+              <Home size={20} />
             </h1>
           </div>
         </Link>
