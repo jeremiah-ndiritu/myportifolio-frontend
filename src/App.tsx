@@ -12,6 +12,7 @@ import Projects from "./pages/Projects";
 import About from "./pages/AboutPage";
 import Particles from "./components/Particles";
 import AIChatPanel from "./components/chat/AIChatPanel";
+import ScrollToTop from "./components/UI/ScrollToTop";
 // import MobileNav from './components/partials/MobileNav';
 const App = () => {
 
@@ -22,6 +23,8 @@ const App = () => {
     });
   }, []);
   return (
+    <>
+    <ScrollToTop />
     <main className="relative h-full w-full pt-12">
       <div style={{ width: "100%", height: "600px", position: "fixed" }}>
         <Particles
@@ -48,6 +51,7 @@ const App = () => {
       <Footer />
       <Toaster position="top-right" richColors />
     </main>
+    </>
   );
 };
 
