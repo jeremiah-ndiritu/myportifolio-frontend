@@ -6,7 +6,7 @@ import {
   type SetStateAction,
 } from "react"; // 1. Import hooks
 import useAIChatDialogue from "@hooks/useAIChatDialogue";
-import Button from "../UI/Button";
+import Button from "../ui/Button";
 import { ArrowUp, Folder, X } from "lucide-react";
 import JerePng from "@images/jeremiah-ai-pic-in-suit-passport.png";
 import { toast } from "sonner";
@@ -82,7 +82,7 @@ const AiChatMain = ({
       {/* Exit Button */}
       <button
         onClick={() => setIsOpen(false)}
-        className="absolute top-4 right-4 p-1.5 rounded-full bg-white/20 hover:bg-white/40 text-gray-600 hover:text-black transition-colors backdrop-blur-md border border-white/30"
+        className="absolute right-4 top-4 rounded-full border border-border bg-surface/80 p-1.5 text-muted transition-colors hover:bg-surface-raised hover:text-fg backdrop-blur-md"
         aria-label="Close chat"
       >
         <X size={18} />
@@ -97,7 +97,7 @@ const AiChatMain = ({
       </button>
       {/* Header */}
       <header className="mb-6">
-        <h1 className="text-center text-primary text- text-2xl font-semibold tracking-tight">
+        <h1 className="text-center text-2xl font-semibold tracking-tight text-fg">
           Chat with Jeremiah
         </h1>
       </header>
@@ -133,7 +133,7 @@ const AiChatMain = ({
           rightIcon={ArrowUp}
           type="button"
           title="send-btn"
-          className="self-end bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="self-end rounded px-4 py-2 transition hover:opacity-90"
         ></Button>
       </div>
     </section>

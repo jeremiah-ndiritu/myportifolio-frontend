@@ -1,23 +1,29 @@
 // import React from 'react'
 
 type Props = {
-    imgUrl?: string;
-    title: string;
-    excerpt: string;
-    date: string;
-}
+  imgUrl?: string;
+  title: string;
+  excerpt: string;
+  date: string;
+};
+
+import Card from "../ui/Card";
 
 const BlogCard = (props: Props) => {
   return (
-      <div className="border border-slate-700 rounded-lg shadow-md flex flex-row gap-4 my-2 min-h-[20vh]">
-          <img src={props.imgUrl} alt={props.title} className="min-h-[10em] rounded-l-lg bg-slate-900" />
-          <div>
-            <h2 className="text-xl font-bold mb-2">{props.title}</h2>
-            <p className="text-gray-600 mb-4">{props.excerpt}</p>
-            <p className="text-gray-500 text-sm">{props.date}</p>
-          </div>
-    </div>
-  )
-}
+    <Card variant="elevated" className="my-2 flex min-h-[20vh] flex-row gap-4">
+      <img
+        src={props.imgUrl}
+        alt={props.title}
+        className="min-h-[10em] rounded-l-lg bg-surface-raised object-cover"
+      />
+      <div className="flex flex-col justify-center py-3 pr-3">
+        <h2 className="mb-2 text-xl font-bold text-fg">{props.title}</h2>
+        <p className="mb-4 text-sm text-muted">{props.excerpt}</p>
+        <p className="text-xs text-muted">{props.date}</p>
+      </div>
+    </Card>
+  );
+};
 
-export default BlogCard
+export default BlogCard;

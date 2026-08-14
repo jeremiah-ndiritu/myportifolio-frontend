@@ -2,19 +2,23 @@
 
 const Talks_session = () => {
   return (
-      <section className="mx-4 my-[5em]">
-          <h1 className="text-slate-800 text-center text-[clamp(1em,4vw,2.5em)]">TALKS & WORKSHOPS</h1>
-          <p>Some of the Mentorships sessions have been conducted.</p>
-          <div>
-              {/* gallary */}
-              <div>
-                  <div className="border border-slate-500 min-w-[20vw] min-h-[90vh] rounded">
-                        {/* image */}
-                    </div>
-              </div>
+    <section className="mx-4 my-[5em]">
+      <h1 className="text-center text-[clamp(1em,4vw,2.5em)] text-fg">
+        TALKS & WORKSHOPS
+      </h1>
+      <p className="text-muted">
+        Some of the Mentorships sessions have been conducted.
+      </p>
+      <div>
+        {/* gallary */}
+        <div>
+          <div className="min-h-[90vh] min-w-[20vw] rounded border border-border bg-surface-raised">
+            {/* image */}
           </div>
-      </section>
-  )
-}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Talks_session
+export default Talks_session;

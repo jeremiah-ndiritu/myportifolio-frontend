@@ -1,12 +1,12 @@
-import plp_cert from "@/assets/certs/plp-cert.png"
-import simplilearn_cert from "@/assets/certs/simplilearn.png"
+import plp_cert from "@/assets/certs/plp-cert.png";
+import simplilearn_cert from "@/assets/certs/simplilearn.png";
 const Learning_Certs = () => {
   return (
-    <section className="my-20 mx-4 px-4 min-h-screen">
-      <h1 className="font-bold text-center text-slate-800 text-[clamp(1.5rem,4vw,2.5rem)]">
+    <section className="mx-4 my-20 min-h-screen px-4">
+      <h1 className="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-fg">
         LEARNING CERTIFICATIONS
       </h1>
-      <p className="text-center text-slate-600 my-4">
+      <p className="my-4 text-center text-muted">
         Discover the latest certifications and learning achievements.
       </p>
       <div className="flex justify-center">

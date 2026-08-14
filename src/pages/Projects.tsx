@@ -2,12 +2,10 @@
 
 const Projects = () => {
   return (
-    <section className="min-h-screen">
-      <h1 className="text-center my-4 text-3xl text-slate-50">
-        Projects
-      </h1>
+    <section className="min-h-screen bg-bg">
+      <h1 className="my-4 text-center text-3xl text-fg">Projects</h1>
     </section>
   );
-}
+};
 
-export default Projects
+export default Projects;

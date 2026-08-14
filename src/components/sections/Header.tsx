@@ -5,8 +5,9 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoChatboxSharp } from "react-icons/io5";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import useAIChatDialogue from "../../hooks/useAIChatDialogue";
-import ThemeToggle from "../UI/ThemeToggle";
+import ThemeToggle from "../ui/ThemeToggle";
 import { Home } from "lucide-react";
+import Button from "../ui/Button";
 
 type ExtLink = {
   href: string;
@@ -50,7 +51,7 @@ const Header = () => {
   const { setIsOpen } = useAIChatDialogue();
 
   return (
-    <header className="fixed left-0 right-0 text-primary p-4 bg-background/50 backdrop-blur-sm top-0 z-30">
+    <header className="sticky top-0 z-30 w-full text-primary p-4 bg-bg/70 backdrop-blur-sm">
       <nav className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <Link to="/" className="hover:opacity-80 transition-opacity">
@@ -67,9 +68,9 @@ const Header = () => {
             <li key={link.name}>
               <Link
                 to={link.path}
-                className="relative text-slate-300 font-medium transition-colors duration-300 hover:text-white
-                         after:content-[''] after:absolute after:left-0 after:-errr445bottom-1
-                         after:h-0.5 after:w-0 after:bg-blue-400 after:transition-all after:duration-300
+                className="relative text-muted font-medium transition-colors duration-300 hover:text-fg
+                         after:content-[''] after:absolute after:left-0 after:-bottom-1
+                         after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300
                          hover:after:w-full"
               >
                 {link.name}
@@ -96,20 +97,22 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <button
+            <Button
               onClick={() => setIsOpen((p) => !p)}
               type="button"
-              className="bg-white text-slate-900 font-bold py-1.5 px-5 rounded-full flex items-center gap-2 hover:bg-blue-400 hover:text-white transition-all active:scale-95"
+              variant="primary"
+              size="sm"
+              className="rounded-full px-5"
             >
               <span>Let's Talk</span>
               <IoChatboxSharp />
-            </button>
+            </Button>
 
             {/* Mobile Toggle */}
             <HiOutlineBars3BottomRight
               onClick={toggleNav}
               size={32}
-              className="md:hidden cursor-pointer hover:text-blue-400 transition-colors"
+              className="md:hidden cursor-pointer hover:text-primary transition-colors"
             />
           </div>
         </div>
@@ -117,7 +120,7 @@ const Header = () => {
 
       {/* Mobile Menu Placeholder (Example Implementation) */}
       {openNav && (
-        <div className="absolute top-full left-0 w-full bg-slate-800 p-6 flex flex-col gap-4 md:hidden border-t border-slate-700">
+        <div className="absolute top-full left-0 w-full bg-surface-raised p-6 flex flex-col gap-4 md:hidden border-t border-border">
           {navLinks.map((link) => (
             <Link
               key={link.name}

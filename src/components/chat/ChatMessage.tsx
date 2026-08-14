@@ -22,13 +22,13 @@ const ChatMessage = ({ message, position, userImage }: MessageProps) => {
   }).format(new Date(timestamp));
 
   const handleContextMenu = (e: React.MouseEvent) => {
-    e.preventDefault()
-    toast.info("Will handle mannually")
-  }
+    e.preventDefault();
+    toast.info("Will handle mannually");
+  };
 
   return (
     <div
-    onContextMenu={handleContextMenu}
+      onContextMenu={handleContextMenu}
       className={cn(
         "group cursor-alias flex w-full mb-6 gap-3 items-end animate-in fade-in slide-in-from-bottom-2 duration-300",
         isRight ? "flex-row-reverse" : "flex-row",
@@ -38,9 +38,7 @@ const ChatMessage = ({ message, position, userImage }: MessageProps) => {
       <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
         <img
           src={
-            isAI
-              ? JerePng
-              : userImage || JerePng // "https://placehold.co/36x36?text=Me"
+            isAI ? JerePng : userImage || JerePng // "https://placehold.co/36x36?text=Me"
           }
           alt={isAI ? "Jeremy" : "Me"}
           className="w-full h-full object-cover"
@@ -67,8 +65,8 @@ const ChatMessage = ({ message, position, userImage }: MessageProps) => {
           className={cn(
             "p-3.5 rounded-2xl text-sm leading-relaxed shadow-sm transition-all",
             isRight
-              ? "bg-blue-600 text-white rounded-tr-sm" // Swapped to tr for top-right "tail"
-              : "bg-white text-slate-800 border border-slate-100 rounded-tl-sm",
+              ? "bg-primary text-primary-foreground rounded-tr-sm"
+              : "border border-border bg-surface text-fg rounded-tl-sm",
           )}
         >
           {text}

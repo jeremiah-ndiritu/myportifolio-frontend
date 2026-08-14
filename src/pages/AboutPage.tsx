@@ -1,7 +1,7 @@
 import jnpng from "@images/jeremiah-ai-pic-in-suit-passport.png";
 import { Helmet } from "react-helmet-async";
 
-const AboutPage = () => {
+export default function AboutPage(){
   return (
     <section className="min-h-screen pt-24 pb-12 px-4 md:px-8 max-w-7xl mx-auto">
       <Helmet>
@@ -10,13 +10,13 @@ const AboutPage = () => {
       <div className="flex flex-col gap-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* Title Section */}
         <div className="relative">
-          <h1 className="text-[clamp(2.5em,12vw,6em)] text-secondary font-black tracking-tighter leading-none opacity-10 absolute -top-10 left-0 select-none">
+          <h1 className="absolute -top-10 left-0 select-none text-[clamp(2.5em,12vw,6em)] font-black tracking-tighter text-muted opacity-10">
             ABOUT ME
           </h1>
-          <h1 className="text-[clamp(2em,8vw,4em)] text-secondary font-bold relative z-10">
+          <h1 className="relative z-10 text-[clamp(2em,8vw,4em)] font-bold text-fg">
             About Me
           </h1>
-          <div className="h-1.5 w-20 bg-blue-500 rounded-full mt-2"></div>
+          <div className="mt-2 h-1.5 w-20 rounded-full bg-primary"></div>
         </div>
 
         {/* Content Grid */}
@@ -25,7 +25,7 @@ const AboutPage = () => {
           <div className="space-y-6">
             <div className="relative group">
               <div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-              <div className="relative aspect-square rounded-2xl bg-slate-800 overflow-hidden border border-white/10">
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-surface-raised">
                 {/* Placeholder for your suit/passport image */}
                 <img
                   src={jnpng}
@@ -36,14 +36,14 @@ const AboutPage = () => {
             </div>
 
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-secondary tracking-tight">
+              <h2 className="text-xl font-bold tracking-tight text-fg">
                 JEREMIAH NDIRITU
               </h2>
               <div className="space-y-0.5">
-                <p className="text-sm font-medium text-blue-400 uppercase tracking-widest">
+                <p className="text-sm font-medium uppercase tracking-widest text-primary">
                   BSc. Software Engineering
                 </p>
-                <p className="text-xs text-muted-foreground font-mono">
+                <p className="font-mono text-xs text-muted">
                   Kirinyaga University
                 </p>
               </div>
@@ -52,14 +52,14 @@ const AboutPage = () => {
 
           {/* Bio Content */}
           <div className="md:col-span-2">
-            <p className="text-lg md:text-xl text-secondary/80 leading-relaxed font-medium">
+            <p className="text-lg font-medium leading-relaxed text-muted md:text-xl">
               Dive into a world where{" "}
-              <span className="text-white">innovation meets creativity</span>.
-              As a Fullstack Developer and Designer, I craft seamless digital
+              <span className="text-fg">innovation meets creativity</span>. As a
+              Fullstack Developer and Designer, I craft seamless digital
               experiences that captivate and inspire.
             </p>
 
-            <p className="mt-6 text-base text-secondary/70 leading-relaxed">
+            <p className="mt-6 text-base leading-relaxed text-muted">
               Explore my portfolio to witness the fusion of cutting-edge
               technology and artistic vision, where every project tells a unique
               story of problem-solving and design excellence. Let's embark on a
@@ -78,7 +78,7 @@ const AboutPage = () => {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-secondary"
+                  className="rounded-full border border-border bg-surface-raised px-4 py-2 text-xs font-mono text-fg"
                 >
                   {skill}
                 </span>
@@ -90,5 +90,3 @@ const AboutPage = () => {
     </section>
   );
 };
-
-export default AboutPage;

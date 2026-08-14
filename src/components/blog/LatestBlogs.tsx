@@ -1,16 +1,16 @@
-import { InfinitySpin, MutatingDots } from "react-loader-spinner"
+import { InfinitySpin, MutatingDots } from "react-loader-spinner";
 
-import BlogCard from "./Blog-card"
+import BlogCard from "./Blog-card";
 
 const LatestBlogs = () => {
-    // spinner color is slate-800
-    const spinnerColor = "#1E293B";
+  // spinner color is slate-800
+  const spinnerColor = "#1E293B";
   return (
-    <section className="my-20 px-4 min-h-screen">
-      <h1 className="font-bold text-center text-slate-800 text-[clamp(1.5rem,4vw,2.5rem)]">
+    <section className="my-20 min-h-screen px-4">
+      <h1 className="text-center text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-fg">
         LATEST BLOGS
       </h1>
-      <p className="text-center text-slate-600 my-4">
+      <p className="my-4 text-center text-muted">
         Discover the latest insights and updates from my blog.
       </p>
       <div className="flex justify-center">
@@ -63,6 +63,6 @@ const LatestBlogs = () => {
       </div>
     </section>
   );
-}
+};
 
-export default LatestBlogs
+export default LatestBlogs;

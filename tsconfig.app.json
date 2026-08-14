@@ -17,7 +17,7 @@
       "@contexts/*": ["./src/ctx/contexts/*"],
       "@providers/*": ["./src/ctx/providers/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@UI/*": ["./src/components/UI/*"],
+      "@ui/*": ["./src/components/ui/*"],
       "@images/*": ["./src/assets/images/*"]
     },
 

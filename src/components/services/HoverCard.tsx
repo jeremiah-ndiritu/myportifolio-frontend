@@ -1,21 +1,22 @@
 import React from "react";
+import Card from "../ui/Card";
+
 interface HoverCardProps {
   title: string;
   description: string;
 }
 
-const HoverCard: React.FC<HoverCardProps> = ({
-  title,
-  description,
-}) => {
+const HoverCard: React.FC<HoverCardProps> = ({ title, description }) => {
   return (
-    <div className="relative bg-slate-200 shadow-lg rounded-lg overflow-hidden group cursor-pointer h-full">
-      {/* Text Content */}
-      <div className="p-4 relative z-10">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-600">{description}</p>
+    <Card
+      variant="elevated"
+      className="relative h-full overflow-hidden group cursor-pointer"
+    >
+      <div className="relative z-10 p-4">
+        <h3 className="text-lg font-semibold text-fg">{title}</h3>
+        <p className="mt-2 text-sm text-muted">{description}</p>
       </div>
-    </div>
+    </Card>
   );
 };
 

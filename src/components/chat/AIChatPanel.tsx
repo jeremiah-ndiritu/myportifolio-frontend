@@ -12,7 +12,7 @@ export default function AIChatPanel() {
   return (
     isOpen && (
       <div
-        className={`chat-root ${isOpen ? "open" : ""} border border-l-border bg-background overflow-y-hidden fixed top-16 h-[90vh]`}
+        className={`chat-root ${isOpen ? "open" : ""} fixed top-16 h-[90vh] overflow-y-hidden border border-border bg-surface`}
       >
         <div className="chat-container relative">
           {visible && <ChatSidebar />}
