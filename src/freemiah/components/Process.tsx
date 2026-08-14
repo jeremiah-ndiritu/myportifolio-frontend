@@ -13,7 +13,7 @@ const Process: React.FC<Props> = ({ steps }) => {
         </p>
 
         <ol className="space-y-4 list-decimal list-inside">
-          {steps.map((s, i) => (
+          {steps.map((s) => (
             <li
               key={s}
               className="bg-surface p-4 border border-border rounded-md"
