@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Toaster } from "sonner";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AIChatPanel from "./components/chat/AIChatPanel";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import AnnouncementBar from "./components/ui/AnnouncementBar";
 import { useAnnouncements } from "./hooks/queries/useAnnouncements";
@@ -36,8 +35,6 @@ const App = () => {
       )}
       <MainLayout>
         <ParticlesAnimation />
-
-        <AIChatPanel />
 
         <AppRoutes />
 

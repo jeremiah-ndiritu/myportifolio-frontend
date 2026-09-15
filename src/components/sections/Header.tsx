@@ -2,12 +2,11 @@ import "@css/header.css";
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
-import { IoChatboxSharp } from "react-icons/io5";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import useAIChatDialogue from "../../hooks/useAIChatDialogue";
 import ThemeToggle from "../ui/ThemeToggle";
 import { Home } from "lucide-react";
 import Button from "../ui/Button";
+import ContactComposer from "../ui/ContactComposer";
 
 type ExtLink = {
   href: string;
@@ -46,9 +45,9 @@ const socialLinks: ExtLink[] = [
 
 const Header = () => {
   const [openNav, setOpenNav] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const toggleNav = () => setOpenNav(!openNav);
-  const { setIsOpen } = useAIChatDialogue();
 
   return (
     <header className="sticky top-0 z-30 w-full text-primary p-4 bg-bg/70 backdrop-blur-sm">
@@ -98,14 +97,13 @@ const Header = () => {
 
           <div className="flex items-center gap-3">
             <Button
-              onClick={() => setIsOpen((p) => !p)}
+              onClick={() => setContactOpen(true)}
               type="button"
               variant="primary"
               size="sm"
               className="rounded-full px-5"
             >
               <span>Let's Talk</span>
-              <IoChatboxSharp />
             </Button>
 
             {/* Mobile Toggle */}
@@ -133,6 +131,10 @@ const Header = () => {
           ))}
         </div>
       )}
+      <ContactComposer
+        open={contactOpen}
+        onClose={() => setContactOpen(false)}
+      />
     </header>
   );
 };
