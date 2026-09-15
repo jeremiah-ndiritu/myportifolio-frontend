@@ -17,7 +17,6 @@ type ExtLink = {
 
 const navLinks = [
   { name: "About", path: "/about" },
-  { name: "Process", path: "/process" },
   { name: "Projects", path: "/projects" },
   { name: "Case Studies", path: "/case-studies" },
 ];
